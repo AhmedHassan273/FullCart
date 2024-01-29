@@ -1,0 +1,29 @@
+<header class="d-flex justify-content-between mb-5">
+  <h1 class="me-auto">Items Inventory</h1>
+  <button [routerLink]="['./new']" class="btn btn-primary px-5"><h5>Add New +</h5></button>
+</header>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of itemsList">
+            <div class="card mb-3">
+              <img [src]="item.image" class="card-img-top" alt="Item Image" />
+              <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+                <p class="card-text">Price: {{ item.price }}</p>
+                <p class="card-text">Brand: {{ item.brand?.name }}</p>
+                <p class="card-text">Category: {{ item.category?.name }}</p>
+                <p class="card-text">Quantity: {{ item.quantity }}</p>
+                <button [routerLink]="['./edit/' + item.id]" class="btn btn-primary">Edit</button>
+                </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
