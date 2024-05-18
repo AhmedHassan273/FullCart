@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Item } from '../../../models/item.model';
 import { ActivatedRoute } from '@angular/router';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-items-list',
@@ -8,45 +9,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./items-list.component.css'],
 })
 export class ItemsListComponent {
+  itemsList: Item[] = [];
 
-  itemsList: Item[] = [
-    {
-      id: 1,
-      name: 'Item 1',
-      description: 'This is item 1',
-      price: 10,
-      brand: {
-        name: 'Brand 1',
-      },
-      category: { name: 'Category 1' },
-      quantity: 5,
-      image: 'image1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Item 2',
-      description: 'This is item 2',
-      price: 20,
-      brand: {
-        name: 'Brand 2',
-      },
-      category: { name: 'Category 2' },
-      quantity: 10,
-      image: 'image2.jpg',
-    },
-    {
-      id: 3,
-      name: 'Item 3',
-      description: 'This is item 3',
-      price: 30,
-      brand: {
-        name: 'Brand 3',
-      },
-      category: { name: 'Category 3' },
-      quantity: 15,
-      image: 'image3.jpg',
-    },
-  ];
+  constructor(
+    private itemService: ItemService,
+    private route: ActivatedRoute
+  ) {}
 
-  constructor(private route: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.route.data.subscribe((data) => {
+      this.itemsList = data['items'];
+      console.log(this.itemsList);
+      
+    });
+  }
+
+  deleteItem(id?: number): void {
+    this.itemService.deleteItem(id).subscribe(result => {
+      if(result) {
+        alert('removed item successfully!');
+        this.itemsList = this.itemsList.filter(i => i != id);
+      } else {
+        alert('someting went wrong!');
+      }
+    })
+  }
 }

@@ -6,8 +6,8 @@ export interface Item {
   name?: string;
   description?: string;
   price?: number;
-  brand?: Brand;
-  category?: Category;
   quantity?: number;
   image?: string;
+  isActive?: boolean;
+  createdAt?: Date;
 }

@@ -13,6 +13,8 @@ import { EditItemComponent } from './components/items/edit-item/edit-item.compon
 import { AddItemComponent } from './components/items/add-item/add-item.component';
 import { AddCategoryComponent } from './components/categorys/add-category/add-category.component';
 import { AddBrandComponent } from './components/brands/add-brand/add-brand.component';
+import { ItemsListResolver } from './resolvers/items-list.resolver';
+import { ItemResolver } from './resolvers/item.resolver';
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent, pathMatch: 'full' },
@@ -36,8 +38,20 @@ const routes: Routes = [
   {
     path: 'items',
     children: [
-      { path: '', component: ItemsListComponent },
-      { path: 'edit/:itemId', component: EditItemComponent },
+      {
+        path: '',
+        component: ItemsListComponent,
+        resolve: {
+          items: ItemsListResolver,
+        },
+      },
+      {
+        path: 'edit/:itemId',
+        component: EditItemComponent,
+        resolve: {
+          item: ItemResolver,
+        },
+      },
       { path: 'new', component: AddItemComponent },
     ],
   },

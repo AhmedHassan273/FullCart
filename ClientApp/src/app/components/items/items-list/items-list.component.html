@@ -1,29 +1,44 @@
-<header class="d-flex justify-content-between mb-5">
-  <h1 class="me-auto">Items Inventory</h1>
-  <button [routerLink]="['./new']" class="btn btn-primary px-5"><h5>Add New +</h5></button>
-</header>
-
-<main>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let item of itemsList">
-            <div class="card mb-3">
-              <img [src]="item.image" class="card-img-top" alt="Item Image" />
-              <div class="card-body">
-                <h5 class="card-title">{{ item.name }}</h5>
-                <p class="card-text">{{ item.description }}</p>
-                <p class="card-text">Price: {{ item.price }}</p>
-                <p class="card-text">Brand: {{ item.brand?.name }}</p>
-                <p class="card-text">Category: {{ item.category?.name }}</p>
-                <p class="card-text">Quantity: {{ item.quantity }}</p>
-                <button [routerLink]="['./edit/' + item.id]" class="btn btn-primary">Edit</button>
-                </div>
-            </div>
-          </li>
-        </ul>
+<div class="container mt-5">
+  <h1 class="mb-4">Items Inventory</h1>
+  <div *ngIf="itemsList.length == 0">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h1 class="text-center">No Items Found</h1>
       </div>
     </div>
   </div>
-</main>
+  <table class="table table-bordered" *ngIf="itemsList.length > 0">
+    <thead>
+      <tr>
+        <th class="text-center" scope="col">Name</th>
+        <th class="text-center" scope="col">Description</th>
+        <th class="text-center" scope="col">Price</th>
+        <th class="text-center" scope="col">Quantity</th>
+        <th class="text-center" scope="col">Image</th>
+        <th class="text-center" scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsList">
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          <img [src]="item.image" alt="Item Image" class="img-thumbnail" height="120" width="120"/>
+        </td>
+        <td class="d-flex justify-content-evenly">
+          <button [routerLink]="['./edit/' + item.id]" class="btn btn-primary mr-5">
+            Edit
+          </button>
+          <button (click)="deleteItem(item.id)" class="btn btn-danger">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button [routerLink]="['./new']" class="btn btn-primary mx-0">
+    Add New Item
+  </button>
+</div>
