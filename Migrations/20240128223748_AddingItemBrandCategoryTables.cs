@@ -28,7 +28,7 @@ namespace FullCart.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categorys",
+                name: "categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -40,7 +40,7 @@ namespace FullCart.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categorys", x => x.Id);
+                    table.PrimaryKey("PK_categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,9 +69,9 @@ namespace FullCart.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Items_Categorys_CategoryId",
+                        name: "FK_Items_categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categorys",
+                        principalTable: "categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -97,7 +97,7 @@ namespace FullCart.Migrations
                 name: "Brands");
 
             migrationBuilder.DropTable(
-                name: "Categorys");
+                name: "categories");
         }
     }
 }

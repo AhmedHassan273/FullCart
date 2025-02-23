@@ -15,7 +15,7 @@ namespace FullCart.Migrations
                 table: "Items");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Items_Categorys_CategoryId",
+                name: "FK_Items_categories_CategoryId",
                 table: "Items");
 
             migrationBuilder.DropIndex(
@@ -71,10 +71,10 @@ namespace FullCart.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Items_Categorys_CategoryId",
+                name: "FK_Items_categories_CategoryId",
                 table: "Items",
                 column: "CategoryId",
-                principalTable: "Categorys",
+                principalTable: "categories",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }

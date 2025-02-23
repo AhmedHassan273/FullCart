@@ -8,7 +8,7 @@ namespace FullCart.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Category> Categorys { get; set; }
+        public DbSet<Category> categories { get; set; }
         public DbSet<Item> Items { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

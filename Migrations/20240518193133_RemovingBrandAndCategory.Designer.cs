@@ -76,7 +76,7 @@ namespace FullCart.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("categories");
                 });
 
             modelBuilder.Entity("FullCart.Models.Item", b =>

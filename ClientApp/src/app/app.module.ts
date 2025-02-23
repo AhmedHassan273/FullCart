@@ -9,15 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
-import { CategorysListComponent } from './components/categorys/categorys-list/categorys-list.component';
 import { BrandsListComponent } from './components/brands/brands-list/brands-list.component';
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
 import { AddBrandComponent } from './components/brands/add-brand/add-brand.component';
-import { AddCategoryComponent } from './components/categorys/add-category/add-category.component';
 import { AddItemComponent } from './components/items/add-item/add-item.component';
 import { EditBrandComponent } from './components/brands/edit-brand/edit-brand.component';
-import { EditCategoryComponent } from './components/categorys/edit-category/edit-category.component';
 import { EditItemComponent } from './components/items/edit-item/edit-item.component';
+import { categoriesListComponent } from './components/categorys/categoriess-list/categories-list.component';
+import { AddCategoryComponent } from './components/categorys/add-category/add-category.component';
+import { EditCategoryComponent } from './components/categorys/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { EditItemComponent } from './components/items/edit-item/edit-item.compon
     NavMenuComponent,
     RegisterComponent,
     HomeComponent,
-    CategorysListComponent,
+    categoriesListComponent,
     BrandsListComponent,
     ItemsListComponent,
     LoginPageComponent,
@@ -33,11 +33,11 @@ import { EditItemComponent } from './components/items/edit-item/edit-item.compon
     AddCategoryComponent,
     AddItemComponent,
     ItemsListComponent,
-    CategorysListComponent,
+    categoriesListComponent,
     BrandsListComponent,
     EditBrandComponent,
     EditCategoryComponent,
-    EditItemComponent
+    EditItemComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

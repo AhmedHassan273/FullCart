@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Category } from '../../../models/category.model';
 
 @Component({
-  selector: 'app-categorys-list',
-  templateUrl: './categorys-list.component.html',
-  styleUrls: ['./categorys-list.component.css'],
+  selector: 'app-categories-list',
+  templateUrl: './categories-list.component.html',
+  styleUrls: ['./categories-list.component.css'],
 })
-export class CategorysListComponent {
-  categorysList: Category[] = [
+export class categoriesListComponent {
+  categoriesList: Category[] = [
     {
       id: 1,
       name: 'Category 1',
